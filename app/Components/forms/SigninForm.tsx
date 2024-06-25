@@ -1,18 +1,43 @@
 "use client";
 
 import React from 'react';
-import { LockOutlined, MailOutlined, GoogleOutlined } from '@ant-design/icons';
+import { LockOutlined, MailOutlined, GoogleOutlined, HomeOutlined,LoginOutlined, UserAddOutlined } from '@ant-design/icons';
 import { Button, Checkbox, Form, Input, Flex, Typography } from 'antd';
+import {Layout, Menu, theme,} from 'antd';
+
+const { Header, Content, Footer } = Layout;
+
 
 export default function SigninForm() {
+  const {
+    token: { colorBgContainer, borderRadiusLG },
+  } = theme.useToken();
 const onFinish = (values: any) => {
     console.log('Received values of form: ', values);
     // Handle login form submission logic here (e.g., send to backend API)
   };
 
   return (
-    <div
-      style={{backgroundImage: 'url("./images/med.jpg")', backgroundSize: 'cover',minHeight: '100vh', display: 'flex',justifyContent: 'center',alignItems: 'center',}}>
+   <div>
+     <Layout style={{ backgroundImage: 'url("./images/med.jpg")', backgroundSize: 'cover', minHeight: '100vh', display: 'flex'}}>
+      <Header style={{ display: 'flex', alignItems: 'center' }}>
+        <div className="demo-logo" />
+        <Menu theme="dark"  mode="horizontal" defaultSelectedKeys={['2']} style={{ flex: 1, minWidth: 0 }}> 
+        <Menu.Item key="home">
+          <HomeOutlined />
+          <a href='/'><span>Home</span></a>
+        </Menu.Item>
+        <Menu.Item key="login">
+          <LoginOutlined />
+          <a href='Signin'><span>Login</span></a>
+        </Menu.Item>
+        <Menu.Item key="register">
+          <UserAddOutlined />
+          <a href='Signup'><span>Register</span></a>
+        </Menu.Item>
+        </Menu>
+      </Header>
+     <div style={{backgroundImage: 'url("./images/med.jpg")', backgroundSize: 'cover',minHeight: '100vh', display: 'flex',justifyContent: 'center',alignItems: 'center',}}>
       <Form
         style={{ backgroundColor: 'white', padding: '0px 16px 16px 16px', borderRadius: '16px' }}
         name="normal_login"
@@ -52,10 +77,15 @@ const onFinish = (values: any) => {
             <GoogleOutlined className="site-form-item-icon" /> Google
           </Button>
           <br />
-            <a href="/Signup">Don't have an account? Register</a>
+            <a href="/Signup">Don&apos;t have an account? Register</a>
         </Form.Item>
       </Form>
     </div>
+    <Footer style={{ textAlign: 'center' }}>
+        Sims Medical Care ©{new Date().getFullYear()} Created by D-Sims
+      </Footer>
+    </Layout> 
+   </div>
   );
 };
 
