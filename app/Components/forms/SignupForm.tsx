@@ -1,16 +1,40 @@
 "use client";
 
 import React from 'react';
-import { LockOutlined, MailOutlined, GoogleOutlined, BookOutlined } from '@ant-design/icons';
-import { Button, Form, Input, Typography } from 'antd';
+import { LockOutlined, MailOutlined, GoogleOutlined, BookOutlined , HomeOutlined,LoginOutlined, UserAddOutlined } from '@ant-design/icons';
+import { Button, Form, Input, Typography,Layout, Menu,theme } from 'antd';
+
+const { Header, Content, Footer } = Layout;
 
 export default function SignupForm() {
+  const {
+    token: { colorBgContainer, borderRadiusLG },
+  } = theme.useToken();
     const onFinish = (values: any) => {
         console.log('Received values of form: ', values);
       };
     
     return (
-      <div style={{ backgroundImage: 'url("./images/med.jpg")', backgroundSize: 'cover', minHeight: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+    <div>
+      <Layout style={{ backgroundImage: 'url("./images/med.jpg")', backgroundSize: 'cover', minHeight: '100vh', display: 'flex'}}>
+      <Header style={{ display: 'flex', alignItems: 'center' }}>
+        <div className="demo-logo" />
+        <Menu theme="dark"  mode="horizontal" defaultSelectedKeys={['2']} style={{ flex: 1, minWidth: 0 }}> 
+        <Menu.Item key="home">
+          <HomeOutlined />
+          <a href='/'><span>Home</span></a>
+        </Menu.Item>
+        <Menu.Item key="login">
+          <LoginOutlined />
+          <a href='Signin'><span>Login</span></a>
+        </Menu.Item>
+        <Menu.Item key="register">
+          <UserAddOutlined />
+          <a href='Signup'><span>Register</span></a>
+        </Menu.Item>
+        </Menu>
+      </Header>
+        <div style={{ backgroundImage: 'url("./images/med.jpg")', backgroundSize: 'cover', minHeight: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
           <Form style={{ backgroundColor: 'white',padding: '0px 16px 16px 16px',borderEndEndRadius: '16px',borderTopRightRadius: '16px',borderTopLeftRadius: '16px',borderBottomLeftRadius: '16px',borderBottomRightRadius: '16px'}}
               name="normal_login"
               className="login-form"
@@ -43,6 +67,11 @@ export default function SignupForm() {
             </Form.Item>
           </Form>
       </div>
+      <Footer style={{ textAlign: 'center' }}>
+        Sims Medical Care ©{new Date().getFullYear()} Created by D-Sims
+      </Footer>
+    </Layout> 
+    </div>
     )
 }
 
