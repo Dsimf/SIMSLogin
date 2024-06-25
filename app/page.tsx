@@ -1,21 +1,83 @@
+"use client";
+
 import React from 'react';
-import { Button, Flex, Form, Typography} from 'antd';
+import { Breadcrumb, Layout, Menu, theme,Image,Col, Divider, Row} from 'antd';
+import { HomeOutlined,LoginOutlined, UserAddOutlined  } from '@ant-design/icons';
+import { Carousel } from 'antd';
+
+const contentStyle: React.CSSProperties = {
+  height: '160px',
+  color: '#fff',
+  lineHeight: '160px',
+  textAlign: 'center',
+  background: '#364d79',
+};
+
+const { Header, Content, Footer } = Layout;
+
 
 export default function Home() {
-  return(
-    <div style={{backgroundImage: 'url("./images/med.jpg")', backgroundSize: 'cover',minHeight: '100vh', display: 'flex',justifyContent: 'center',alignItems: 'center',}}>
-    <Form style={{ backgroundColor: 'white',padding: '0px 16px 16px 16px',borderEndEndRadius: '16px',borderTopRightRadius: '16px',borderTopLeftRadius: '16px',borderBottomLeftRadius: '16px',borderBottomRightRadius: '16px'}}>
-    <Typography style={{fontSize: '50px'}}><b>SIMS MEDICAL CARE</b></Typography>
-    <br></br>
-    <Flex justify="space-between">
-    <Button type="primary" size="large" href="Signin">
-      SignIn
-    </Button>
-    <Button type="primary" size="large" href="Signup">
-      SignUP
-    </Button>
-    </Flex>
-    </Form>
-  </div>
-  )
-}
+  const {
+    token: { colorBgContainer, borderRadiusLG },
+  } = theme.useToken();
+  return( 
+    <div >
+       <Layout style={{ backgroundImage: 'url("./images/med.jpg")', backgroundSize: 'cover', minHeight: '100vh', display: 'flex'}}>
+      <Header style={{ display: 'flex', alignItems: 'center' }}>
+        <div className="demo-logo" />
+        <Menu theme="dark"  mode="horizontal" defaultSelectedKeys={['2']} style={{ flex: 1, minWidth: 0 }}> 
+        <Menu.Item key="home">
+          <HomeOutlined />
+          <a href='/'><span>Home</span></a>
+        </Menu.Item>
+        <Menu.Item key="login">
+          <LoginOutlined />
+          <a href='Signin'><span>Login</span></a>
+        </Menu.Item>
+        <Menu.Item key="register">
+          <UserAddOutlined />
+          <a href='Signup'><span>Register</span></a>
+        </Menu.Item>
+        </Menu>
+      </Header>
+      <Content style={{ padding: '0 48px',  backgroundSize:'cover' }}>
+        <Breadcrumb style={{ margin: '16px 0' }}>
+          <Breadcrumb.Item>Home</Breadcrumb.Item>
+          <Breadcrumb.Item>Doctors</Breadcrumb.Item>
+          <Breadcrumb.Item>Patient-Records</Breadcrumb.Item>
+        </Breadcrumb>
+        <div
+          style={{
+            background: colorBgContainer, minHeight: 280, padding: 24, borderRadius: borderRadiusLG}}>
+            <h1 style={{opacity: '1'}}>SIMS MEDICAL CARE</h1>
+              <div>
+              <Carousel autoplay>
+                  <div>
+                       <h3 style={{backgroundImage: 'url("./images/img1.jpeg")', backgroundSize: 'cover', minHeight: '60vh'}} ></h3>
+                  </div>
+                  <div>
+                       <h3 style={{backgroundImage: 'url("./images/img2.jpeg")', backgroundSize: 'cover', minHeight: '60vh'}}></h3>
+                  </div>
+                  <div>
+                      <h3 style={{backgroundImage: 'url("./images/img3.jpeg")', backgroundSize: 'cover', minHeight: '60vh'}}></h3>
+                  </div>
+                  <div>
+                      <h3 style={{backgroundImage: 'url("./images/img4.jpeg")', backgroundSize: 'cover', minHeight: '60vh'}}></h3>
+                  </div>
+                  <div>
+                      <h3 style={{backgroundImage: 'url("./images/img5.jpeg")', backgroundSize: 'cover', minHeight: '60vh'}}></h3>
+                  </div>
+                  <div>
+                      <h3 style={{backgroundImage: 'url("./images/img6.jpeg")', backgroundSize: 'cover', minHeight: '60vh'}}></h3>
+                  </div>
+              </Carousel>
+              </div>
+            </div>
+      </Content>
+      <Footer style={{ textAlign: 'center' }}>
+        Sims Medical Care ©{new Date().getFullYear()} Created by D-Sims
+      </Footer>
+    </Layout> 
+    </div>
+     )
+    }
