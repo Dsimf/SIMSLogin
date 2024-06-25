@@ -52,7 +52,7 @@ const onFinish = (values: any) => {
             <GoogleOutlined className="site-form-item-icon" /> Google
           </Button>
           <br />
-            <a href="/Signup">Don't have an account? Register</a>
+            <a href="/Signup">Don&apos;t have an account? Register</a>
         </Form.Item>
       </Form>
     </div>
