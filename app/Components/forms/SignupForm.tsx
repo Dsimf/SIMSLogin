@@ -16,7 +16,7 @@ export default function SignupForm() {
               className="login-form"
               initialValues={{ remember: true }}
               onFinish={onFinish}>
-                <Typography.Title>Let's get started</Typography.Title>
+                <Typography.Title>Let&apos;s get started</Typography.Title>
 
             <Form.Item
                   name="phone" rules={[{ required: true, message: 'Please input your Phone!' }]}>
