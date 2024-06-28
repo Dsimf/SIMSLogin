@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { Breadcrumb, Layout, Menu, theme,Image,Col, Divider, Row} from 'antd';
+import { Breadcrumb, Layout, Menu, theme} from 'antd';
 import { HomeOutlined,LoginOutlined, UserAddOutlined  } from '@ant-design/icons';
 import { Carousel } from 'antd';
 
@@ -43,13 +43,13 @@ export default function Home() {
       <Content style={{ padding: '0 48px',  backgroundSize:'cover' }}>
         <Breadcrumb style={{ margin: '16px 0' }}>
           <Breadcrumb.Item>Home</Breadcrumb.Item>
-          <Breadcrumb.Item>Doctors</Breadcrumb.Item>
+          <Breadcrumb.Item>DashBoard</Breadcrumb.Item>
           <Breadcrumb.Item>Patient-Records</Breadcrumb.Item>
         </Breadcrumb>
         <div
           style={{
             background: colorBgContainer, minHeight: 280, padding: 24, borderRadius: borderRadiusLG}}>
-            <h1 style={{opacity: '1'}}>SIMS MEDICAL CARE</h1>
+            <h1 style={{opacity: '0.8'}}>SIMS MEDICAL CARE</h1>
               <div>
               <Carousel autoplay>
                   <div>
